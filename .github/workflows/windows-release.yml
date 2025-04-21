@@ -3,6 +3,16 @@ permissions:
   contents: write
 
 on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag to create (e.g., v1.2.3)'
+        required: true
+        type: string
+      create_release:
+        description: 'Create a GitHub release?'
+        type: boolean
+        default: true
   push:
     tags:
       - '*'
